@@ -94,6 +94,9 @@ function basketProductsGenerator(userBasketArray) {
     let basketProductRemoveBtn = document.createElement("button");
     basketProductRemoveBtn.className = "btn btn-danger";
     basketProductRemoveBtn.innerHTML = "Remove";
+    basketProductRemoveBtn.addEventListener("click", function () {
+      removeProducFromtBasket(product.id);
+    });
 
     basketProductInputContainer.append(
       basketProductInput,
@@ -105,6 +108,13 @@ function basketProductsGenerator(userBasketArray) {
       basketProductInputContainer
     );
     basketProductsContainer.append(basketProductContainer);
-    console.log(basketProductContainer);
   });
+}
+
+function removeProducFromtBasket(productId) {
+  userBasket = userBasket.filter(function (product) {
+    return product.id !== productId;
+  });
+  console.log(userBasket);
+  basketProductsGenerator(userBasket);
 }
