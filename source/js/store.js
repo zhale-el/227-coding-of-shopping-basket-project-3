@@ -9,6 +9,7 @@ let allProducts = [
 
 const shopItemsContainer = document.querySelector(".shop-items");
 const basketProductsContainer = document.querySelector(".cart-items");
+const removeAllProductsBtn = document.querySelector("#remove-all-products");
 let userBasket = [];
 
 allProducts.forEach(function (product) {
@@ -118,3 +119,7 @@ function removeProducFromtBasket(productId) {
   console.log(userBasket);
   basketProductsGenerator(userBasket);
 }
+removeAllProductsBtn.addEventListener("click", function () {
+  userBasket = [];
+  basketProductsGenerator(userBasket);
+});
